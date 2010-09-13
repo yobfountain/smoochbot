@@ -1,0 +1,16 @@
+<% if @smoochee.first_time? %>
+
+Welcome to smoochbot. Below is your first email! Every smoochmail you receive will have links at the bottom where you can unsubscribe or update your settings.
+
+<% end %>
+
+<%= @article.title %>
+<%= @article.body %>
+
+
+Cost: $<%= @article.max_cost %> - $<%= @article.max_cost %>
+Time Committment: <%= @article.duration %>
+
+------
+unsubscribe: http://www.smoochbot.com/unsub/<%= @smoochee.confirmation_code %>
+change your preferences: http://www.smoochbot.com/update/<%= @smoochee.confirmation_code %>

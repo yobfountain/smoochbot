@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+ 
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
+ 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #000000;
+  background: white url(/images/bg_grad.gif) left top repeat-x;
+  }
+ 
+h2 {
+  font-weight: bold;
+  color: #6AC4C5;
+  padding-top: .5em;
+  }
+ 
+h3 {
+  font-weight: normal;
+  font-size: 13px;
+  color: #FFFFFF;
+  background-color: #6AC4C5;
+  padding: .5em;
+  }
+  
+blockquote {
+  padding-left: .5em;
+  margin-left: .5em;
+  border-left: 1px solid #999999;
+  }
+ 
+#intro {
+  width: 850px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  }
+ 
+#content {
+  width: 798px;
+  border: #6AC4C5 solid 5px;
+  margin: auto;
+  margin-top: 70px;
+  padding: 1em 3em 2em 2em;
+  background-color: #FFFFFF;
+  }
+  
+#bottom_container {
+  width: 850px;
+  margin: auto;
+  position: relative;
+  left: -7px;
+  }
+ 
+#right_panel {
+  width: 275px;
+  float: right;
+  clear: both;
+  margin-left: 1em;
+  }
+ 
+#left_panel {
+  width: 530px;  ;
+  }
+ 
+#signup_box {
+  border: 1px solid #6AC4C5;
+  margin: .5em;
+  font-size: 11px;
+  }
+ 
+#form_box {
+  padding: 1em;
+  }
+ 
+.tagline {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 21px;
+  font-weight: bold;
+  }  
+#copy_box {
+  margin: 2em 0 3em 0;
+  }
+  
+.main_copy {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  color: #000000;
+  padding-bottom: 1em;
+  }
+ 
+.ocr_copy {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  }
+ 
+#idea_container {
+  padding: 1.5em 2.5em 1.5em 1.5em;
+  height: 150px;
+  background-color: #F8E789;
+  }
+ 
+.idea_nav_list {
+  font-size: 18px;
+  }
+ 
+#footer {
+  width: 825px;
+  margin: auto;
+  margin-top: 10px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #999999;
+  }
+  
+#footer a:link {
+  color: #999999;
+  text-decoration: none;
+  }
+  
+#footer a:visited {
+  color: #999999;
+  text-decoration: none;
+  }
+  
+#footer a:active {
+  color: #999999;
+  text-decoration: none;
+  }
