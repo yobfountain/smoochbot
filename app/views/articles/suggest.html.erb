@@ -1,0 +1,25 @@
+<h1>suggest a smoochmail</h1>
+<br />
+<p>all suggestions are welcome. please input your data below:</p>
+<br />
+<% form_for(@article) do |f| %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :size => 80 %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :cols => 70, :rows => 6 %>
+  </p>
+  <p>
+    <%= f.label :min_cost %>
+    $ <%= f.text_field :min_cost, :size => 10 %>  
+    <%= f.label :max_cost %>
+    $ <%= f.text_field :max_cost, :size => 10 %>
+    <%= f.label :duration, "how long will this idea take?" %>
+    <%= f.text_field :duration, :size => 10 %>
+  </p>
+  <p>
+    <%= f.submit "Suggest" %>
+  </p>
+<% end %>

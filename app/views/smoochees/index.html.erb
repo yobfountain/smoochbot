@@ -1,0 +1,21 @@
+<h1>Listing smoochees</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @smoochees.each do |smoochee| %>
+  <tr>
+    <td><%= link_to 'Show', smoochee %></td>
+    <td><%= link_to 'Edit', edit_smoochee_path(smoochee) %></td>
+    <td><%= link_to 'Destroy', smoochee, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Smoochee', new_smoochee_path %>

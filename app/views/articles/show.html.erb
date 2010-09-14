@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%=h @article.title %>
+</p>
+<p>
+  <b>Intro:</b>
+  <%=h @article.intro %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @article.body %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%=h @article.duration %>
+</p>
+
+<p>
+  <b>Min cost:</b>
+  <%=h @article.min_cost %>
+</p>
+
+<p>
+  <b>Max cost:</b>
+  <%=h @article.max_cost %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%=h @article.rating %>
+</p>
+
+<p>
+  <b>Can reuse:</b>
+  <%=h @article.can_reuse %>
+</p>
+
+<p>
+  <b>Is significant:</b>
+  <%=h @article.is_significant %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

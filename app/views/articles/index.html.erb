@@ -1,0 +1,23 @@
+<h1>Articles</h1>
+
+<br />
+<p><%= link_to 'Create an Article', new_article_path %></p>
+<br />
+
+<% for articles in @articles %>
+  <div>
+	<hr />
+    <p class="article_title"><%=h articles.title %> - <%= link_to 'Show', articles %> |
+    <%= link_to 'Edit', edit_article_path(articles) %> |
+    <%= link_to 'Destroy', articles, :confirm => 'Are you sure?', :method => :delete %></p>
+    <%=h articles.intro %><br />
+    <%=h articles.body %><br />
+    <%=h articles.duration %> mins. | $<%=h articles.min_cost %> - <%=h articles.max_cost %> | <%=h articles.rating %>
+    <%=h articles.can_reuse %>
+    <%=h articles.is_significant %>
+	<%=h articles.active %>
+	</div>
+	<br />
+<% end %>
+
+<br />
