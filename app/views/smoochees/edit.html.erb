@@ -1,6 +1,32 @@
-<h1>Editing smoochee</h1>
+<h1>Editing profile</h1>
+ 
+<% form_for(@smoochee) do |f| %>
+ 
+  <p>
+    <%= f.label :anniversary %><br />
+    <%= f.date_select :anniversary, :discard_year => true %>
+  </p>
+  <p>
+    <%= f.label :birthday %><br />
+    <%= f.date_select (:birthday, :discard_year => true) %>
+  </p>
+  <p>
+  <%= f.label :budget %>:
+  <%= f.radio_button :budget, "0", :checked => true %> <%= f.label :anything_goes %>
+  <%= f.radio_button :budget, "1" %> <%= f.label :frugal %>
+  <%= f.radio_button :budget, "2" %> <%= f.label :thrifty %>
+  </p>
 
-<%= render 'form' %>
+  <p>
+  <%= f.label :frequency %>:
+  <%= f.radio_button :frequency, "0" %> <%= f.label :weekly %>
+  <%= f.radio_button :frequency, "1" %> <%= f.label :monthly %>
+  </p>
 
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+ 
 <%= link_to 'Show', @smoochee %> |
 <%= link_to 'Back', smoochees_path %>

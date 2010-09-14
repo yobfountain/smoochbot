@@ -1,21 +1,32 @@
-<h1>Listing smoochees</h1>
+<h1>List Members</h1>
+
+<%= link_to 'New smoochee', new_smoochee_path %>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Email</th>
+    <th>Email verified</th>
+    <th>Active</th>
+    <th>Anniversary</th>
+    <th>Birthday</th>
+    <th>Budget</th>
+    <th>Frequency</th>
+    <th>Last Smooched</th>
   </tr>
-
-<% @smoochees.each do |smoochee| %>
+ 
+<% for smoochee in @smoochees %>
   <tr>
+    <td><%=h smoochee.email %></td>
+    <td><%=h smoochee.email_verified %></td>
+    <td><%=h smoochee.active %></td>
+    <td><%=h smoochee.anniversary %></td>
+    <td><%=h smoochee.birthday %></td>
+    <td><%=h smoochee.budget %></td>
+    <td><%=h smoochee.frequency %></td>
+    <td><%=h smoochee.last_smooched %></td>
     <td><%= link_to 'Show', smoochee %></td>
     <td><%= link_to 'Edit', edit_smoochee_path(smoochee) %></td>
     <td><%= link_to 'Destroy', smoochee, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Smoochee', new_smoochee_path %>

@@ -1,0 +1,9 @@
+<h1> unsubscribe </h1>
+
+<br />
+Please enter your email below
+<% form_for :smoochee, :url => { :action => "deactivate" } do |f| %>
+<p>	
+<%= f.text_field :email %> <%= f.submit "unsubscribe" %>
+</p>
+<% end %>

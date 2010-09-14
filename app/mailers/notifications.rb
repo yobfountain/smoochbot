@@ -32,4 +32,10 @@ class Notifications < ActionMailer::Base
     sent_on    sent_at    
     body       :smoochee => smoochee
   end
+  
+  def cron(sent_at = Time.now)
+     mail (:subject  => 'Cron Ran', :to => 'brian@brianfountain.com')
+     sent_on    sent_at
+   end
+   
 end
