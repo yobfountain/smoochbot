@@ -3,44 +3,33 @@ class Notifications < ActionMailer::Base
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
-  #
   #   en.notifications.admin.subject
-  #
-  def admin
+  
+  def admin(sent_at = Time.now)
+    mail (:subject  => 'Smoochbot Report', :to => 'brian@brianfountain.com')
+    sent_on    sent_at
     @greeting = "Hi"
-    mail :to => "brian@brianfountain.com"
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.notifications.article.subject
-  #
-  def article
-    @smoochee = smoochee
-    @article = article
-    mail :to => "to@example.org"
+  def article(smoochee, article, sent_at = Time.now)
+    smoochee.mailings.create( :article => article, :time_sent => sent_at )
+    smoochee.update_attribute( :last_smooched, sent_at )
+    mail ( :subject => 'Your requested smoochmail')
+    recipients smoochee.email
+    sent_on    sent_at    
+    body       :smoochee => smoochee, :article => article
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.notifications.article_suggested.subject
-  #
-  def article_suggested
+  def article_suggested(sent_at = Time.now)
     @greeting = "Hi"
-
-    mail :to => "brian@brianfountain.com"
+    mail (:subject => 'Article Suggested', :to => "brian@brianfountain.com")
+    sent_on    sent_at
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.notifications.confirmation.subject
-  #
-  def confirmation
-    @greeting = "Hi"
-
-    mail :to => "to@example.org"
+  def confirmation(smoochee, sent_at = Time.now)
+    subject    'Smoochbot Activation Email'
+    recipients smoochee.email
+    sent_on    sent_at    
+    body       :smoochee => smoochee
   end
 end
