@@ -34,7 +34,11 @@ class SmoocheesController < ApplicationController
 
   # GET /smoochees/1/edit
   def edit
-    @smoochee = Smoochee.find(params[:id])
+    if params[:id]
+      @smoochee = Smoochee.find(params[:id])
+    elsif params[:confirmation_code]
+      @smoochee = Smoochee.find_by_confirmation_code(params[:confirmation_code])
+    end
   end
   
   # POST /smoochees
@@ -50,7 +54,8 @@ class SmoocheesController < ApplicationController
       if @smoochee.save
         # Not sure if I structured this line below correctly
         Notifications.confirmation(@smoochee).deliver
-        format.html { redirect_to(@smoochee, :notice => 'Check your email!') }
+        flash[:notice] = 'Check your email!'
+        format.html { redirect_to('/') }
         # format.xml  { render :xml => @smoochee, :status => :created, :location => @smoochee }
       else
         format.html { render :action => "new" }

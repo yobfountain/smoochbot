@@ -18,14 +18,14 @@ class Article < ActiveRecord::Base
            article = Article.active_articles.reusable_articles.sort_by{rand}.slice(0)
          end
   
-         Notifications.deliver_article(smoochee, article)
+         Notifications.article(smoochee, article).deliver
 
   
        end
      end
   
      # Send an email to admin that the script has ran
-     Notifications.deliver_admin
+     Notifications.admin.deliver
    end
   
   def self.get_random_article

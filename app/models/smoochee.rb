@@ -22,8 +22,12 @@ class Smoochee < ActiveRecord::Base
   
   
   def generate_confirmation_code
-    update_attribute :confirmation_code, Digest::SHA1.hexdigest(email + 1.hour.ago.to_s).to_s.slice(0..6)
-    # TODO add uniqueness check?
+    code = Digest::SHA1.hexdigest(email + 1.hour.ago.to_s).to_s.slice(0..6)
+    while Smoochee.exists?(:confirmation_code => code) do
+      code = Digest::SHA1.hexdigest(email + 1.hour.ago.to_s).to_s.slice(0..6)
+    end
+    
+    update_attribute :confirmation_code, code
   end
   
   def last_smooched

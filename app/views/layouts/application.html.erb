@@ -8,6 +8,8 @@
 </head>
 <body>
 <div id="content">
+<div id="notice"><%= flash[:notice] %></div>
+<div id="errors"><%= flash[:errors] %></div>
 <%= yield %>
 
 </div>
