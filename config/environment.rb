@@ -5,7 +5,10 @@ require File.expand_path('../application', __FILE__)
 Smoochbot::Application.initialize!
 
 Smoochbot::Application.configure do
-  if Rails.env != 'production'
+  if Rails.env == 'production'
+    config.action_mailer.default_url_options = { :host => 'smoochbot.heroku.com' }
+  else
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
