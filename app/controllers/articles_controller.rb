@@ -25,11 +25,15 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   # GET /articles/new.xml
   def new
-    @article = Article.new
+    if user_signed_in?
+      @article = Article.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @article }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @article }
+      end
+    else
+      redirect_to root_path
     end
   end
 
