@@ -110,7 +110,7 @@ class SmoocheesController < ApplicationController
       #send first email
       Notifications.deliver_article(@smoochee, Article.get_random_article)
       # redirect to update
-      redirect_to "/edit/#{token}"
+      redirect_to "/update/#{token}"
     end    
   end
   
