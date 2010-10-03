@@ -53,7 +53,7 @@ class SmoocheesController < ApplicationController
     respond_to do |format|
       if @smoochee.save
         # Not sure if I structured this line below correctly
-        Notifications.confirmation(@smoochee).deliver
+        Notifications.confirmation(@smoochee, request.host_with_port).deliver
         flash[:notice] = 'Check your email!'
         format.html { redirect_to('/') }
         # format.xml  { render :xml => @smoochee, :status => :created, :location => @smoochee }
@@ -103,12 +103,12 @@ class SmoocheesController < ApplicationController
     @smoochee.active = true
     @smoochee.email_verified = true
     @smoochee.save
-    token = @smoochee.confirmation_code
+    token = @smoochee.confirmation_code    
     
     if @smoochee.save
       flash[:notice] = 'Your account has been activated. Please take a moment to customize your account.'
       #send first email
-      Notifications.deliver_article(@smoochee, Article.get_random_article)
+      Notifications.article(@smoochee, Article.get_random_article, request.host_with_port).deliver
       # redirect to update
       redirect_to "/update/#{token}"
     end    

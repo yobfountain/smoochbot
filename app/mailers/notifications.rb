@@ -12,12 +12,13 @@ class Notifications < ActionMailer::Base
     mail :subject  => 'Smoochbot Report', :to => 'brian@brianfountain.com'
   end
 
-  def article(smoochee, article)
+  def article(smoochee, article, host="smoochbot.heroku.com")
     smoochee.mailings.create( :article => article, :time_sent => Time.now )
     smoochee.update_attribute( :last_smooched, Time.now )
     
     @smoochee = smoochee
     @article = article
+    @host = host
     mail :subject => 'Your requested smoochmail', :to => smoochee.email
     # recipients smoochee.email
     # sent_on    sent_at    
@@ -29,8 +30,9 @@ class Notifications < ActionMailer::Base
     mail :subject => 'Article Suggested', :to => "brian@brianfountain.com"
   end
 
-  def confirmation(smoochee)
+  def confirmation(smoochee, host)
     @smoochee = smoochee
+    @host = host
     mail :to => smoochee.email, :subject => 'Smoochbot Activation Email'
   end
   

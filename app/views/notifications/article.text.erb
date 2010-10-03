@@ -12,5 +12,5 @@ Cost: $<%= @article.max_cost %> - $<%= @article.max_cost %>
 Time Committment: <%= @article.duration %>
 
 ------
-unsubscribe: http://www.smoochbot.com/unsub/<%= @smoochee.confirmation_code %>
-change your preferences: http://www.smoochbot.com/update/<%= @smoochee.confirmation_code %>
+unsubscribe: http://<%= @host %>/unsub/<%= @smoochee.confirmation_code %>
+change your preferences: http://<%= @host %>/update/<%= @smoochee.confirmation_code %>
