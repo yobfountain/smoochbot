@@ -1,13 +1,12 @@
 class Notifications < ActionMailer::Base
-  default :from => "vpotus@gmail.com"
-  # smtp_settings :port => 587, :authentication => :login, :enable_starttls_auto => true, :password => "fourteen"
-  #   raise_delivery_errors = true
+  default :from => "bot@smoochbot.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #   en.notifications.admin.subject
   
-  def admin
+  def admin(smoochees)
+    @smoochees = smoochees
     @greeting = "Hi"
     mail :subject  => 'Smoochbot Report', :to => 'brian@brianfountain.com'
   end

@@ -1,4 +1,8 @@
 class SmoocheesController < ApplicationController
+  
+  #protect edit and unsubscribe methods
+  before_filter :must_have_confirmation_code, :except => [:new, :create]
+  
   # GET /smoochees
   # GET /smoochees.xml
   def index
@@ -135,4 +139,15 @@ class SmoocheesController < ApplicationController
     end
   end
   
+  def must_have_confirmation_code
+    #retrieve smoochee by confirmation_code
+    @smoochee = Smoochee.find_by_confirmation_code(params[:confirmation_code])    
+    # ensure they exist
+    if @smoochee.nil?
+      #that user does not exist
+      flash[:error] = "That smoochee does not exist"
+      redirect_to root_url
+    end
+  end
+     
 end
