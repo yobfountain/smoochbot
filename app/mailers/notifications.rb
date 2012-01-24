@@ -1,5 +1,7 @@
 class Notifications < ActionMailer::Base
   default :from => "bot@smoochbot.com"
+  # TODO need to set up default_admin_email
+  admin_email = ENV['SMOOCHBOT_ADMIN_EMAIL']
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -9,7 +11,7 @@ class Notifications < ActionMailer::Base
     @smoochees = smoochees
     @smooched = smooched
     @greeting = "Hi"
-    mail :subject  => 'Smoochbot Report', :to => 'brian@brianfountain.com'
+    mail :subject  => 'Smoochbot Report', :to => ENV['SMOOCHBOT_ADMIN_EMAIL'] #TODO DRY this up
   end
 
   def article(smoochee, article, host="smoochbot.heroku.com")
@@ -20,14 +22,11 @@ class Notifications < ActionMailer::Base
     @article = article
     @host = host
     mail :subject => 'Your requested smoochmail', :to => smoochee.email
-    # recipients smoochee.email
-    # sent_on    sent_at    
-    # body       :smoochee => smoochee, :article => article
   end
 
   def article_suggested
     @greeting = "Hi"
-    mail :subject => 'Article Suggested', :to => "brian@brianfountain.com"
+    mail :subject => 'Article Suggested', :to => ENV['SMOOCHBOT_ADMIN_EMAIL'] #TODO DRY this up
   end
 
   def confirmation(smoochee, host)
@@ -37,7 +36,7 @@ class Notifications < ActionMailer::Base
   end
   
   def cron
-     mail :subject  => 'Cron Ran', :to => 'brian@brianfountain.com'
+     mail :subject  => 'Cron Ran', :to => ENV['SMOOCHBOT_ADMIN_EMAIL'] #TODO DRY this up
    end
    
 end
