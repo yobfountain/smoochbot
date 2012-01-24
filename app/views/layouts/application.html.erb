@@ -8,10 +8,16 @@
 </head>
 <body>
 <div id="content">
+	<div id="user_nav">
 	<% if user_signed_in? %>
-		<p>Hello <%= current_user.email %></p>
-		<%= link_to "Logout", destroy_user_session_path %>
+		<p>Hello <%= current_user.email %> | 
+		<%= link_to "Logout", destroy_user_session_path %></p>
 	<% end %>
+	</div>
+	<div id="intro">
+		<img src="/images/smooch_logo2.png" alt="smoochbot logo" />
+		<p class="tagline">machine assisted romance</p>
+	</div>
 <div id="notice"><%= flash[:notice] %></div>
 <div id="errors"><%= flash[:errors] %></div>
 <%= yield %>

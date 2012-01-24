@@ -5,10 +5,45 @@ html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, 
  
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color: #000000;
   background: white url(/images/bg_grad.gif) left top repeat-x;
   }
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
  
 h2 {
   font-weight: bold;
@@ -45,6 +80,10 @@ blockquote {
   padding: 1em 3em 2em 2em;
   background-color: #FFFFFF;
   }
+
+#user_nav {
+	float: right;
+}
   
 #bottom_container {
   width: 850px;

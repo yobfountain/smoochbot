@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
         format.xml  { render :xml => @article }
       end
     else
+      # TODO insert error message
       redirect_to root_path
     end
   end

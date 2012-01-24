@@ -1,16 +1,21 @@
 class SmoocheesController < ApplicationController
   
   #protect edit and unsubscribe methods
-  before_filter :must_have_confirmation_code, :except => [:new, :create]
+  before_filter :must_have_confirmation_code, :except => [:new, :create, :index]
   
   # GET /smoochees
   # GET /smoochees.xml
   def index
-    @smoochees = Smoochee.all
+    if user_signed_in?
+      @smoochees = Smoochee.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @smoochees }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @smoochees }
+      end
+    else
+      flash[:notice] = 'Please log in first!'
+      redirect_to root_path
     end
   end
 
