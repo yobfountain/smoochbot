@@ -5,8 +5,9 @@ class Notifications < ActionMailer::Base
   # with the following lookup:
   #   en.notifications.admin.subject
   
-  def admin(smoochees)
+  def admin(smoochees, smooched)
     @smoochees = smoochees
+    @smooched = smooched
     @greeting = "Hi"
     mail :subject  => 'Smoochbot Report', :to => 'brian@brianfountain.com'
   end

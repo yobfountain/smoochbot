@@ -9,12 +9,14 @@ class Article < ActiveRecord::Base
   
      all_articles = Article.active_articles
      smoochees = Smoochee.emailable
+     smooched = 0
      
      smoochees.each do |smoochee|
   
        if smoochee.needs_smooching? || options[:beta] #beta = ignore last email date
          available_articles = all_articles - smoochee.articles
          article = available_articles.sort_by{ rand }.slice(0)
+         smooched +=1
          if article.nil?
            article = Article.active_articles.reusable_articles.sort_by{rand}.slice(0)
          end
@@ -25,7 +27,7 @@ class Article < ActiveRecord::Base
      end
   
      # Send an email to admin that the script has ran
-     Notifications.admin(smoochees).deliver
+     Notifications.admin(smoochees, smooched).deliver
    end
    
    # Special mail_all that over rides wait times
