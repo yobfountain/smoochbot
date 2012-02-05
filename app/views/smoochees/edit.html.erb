@@ -12,9 +12,9 @@
   </p>
   <p>
   <%= f.label :budget %>:
-  <%= f.radio_button :budget, "0", :checked => true %> <%= f.label :anything_goes %>
-  <%= f.radio_button :budget, "1" %> <%= f.label :frugal, "within reason" %>
-  <%= f.radio_button :budget, "2" %> <%= f.label :thrifty, "cheap stuff only" %>
+  <%= f.radio_button :budget, "3", :checked => true %> <%= f.label :anything_goes, "anything goes" %>
+  <%= f.radio_button :budget, "2" %> <%= f.label :frugal, "within reason" %>
+  <%= f.radio_button :budget, "1" %> <%= f.label :thrifty, "cheap stuff only" %>
   </p>
 
   <p>
@@ -24,7 +24,7 @@
   </p>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "update", :class => 'myButton' %>
   </p>
 <% end %>
  
