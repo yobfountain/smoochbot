@@ -133,6 +133,13 @@ blockquote {
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   }
+
+.robot {
+	float: right;
+	position: relative;
+	top: -101px;
+	right: -35px;
+}
  
 #idea_container {
   padding: 1.5em 2.5em 1.5em 1.5em;
