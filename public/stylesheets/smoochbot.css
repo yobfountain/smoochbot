@@ -46,7 +46,12 @@ form {
 
 #error_explanation ul li {
   font-size: 12px;
-  list-style: square;
+  list-style: none;
+  padding: 4px;
+}
+
+h1 {
+	font-weight: normal;
 }
  
 h2 {
@@ -275,8 +280,9 @@ tr.odd td{
 }
 
 .top-padding {
-	padding-top: 1em;
 }
 
+form p {padding-top: 1em;}
+
 form p { position:relative; left:-6px; }
-label.inField  { position:absolute; top:0; left:0}
+label.inField  { position:absolute; top:7; left:0}
