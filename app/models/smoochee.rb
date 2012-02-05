@@ -16,9 +16,9 @@ class Smoochee < ActiveRecord::Base
   scope :emailable, :conditions => { :active => true, :email_verified => true }
   
   validates_uniqueness_of :email, :on => :create, :message => "must be unique"
-  validates_presence_of :email, :on => :create, :message => "please input email"
-  validates_length_of :email, :within => 6..MAX_EMAIL, :on => :create, :message => "improper email format"
-  validates_format_of :email, :with => EMAIL_REGEX, :message => "improper email format"
+  validates_presence_of :email, :on => :create, :message => "can not be blank"
+  validates_length_of :email, :within => 6..MAX_EMAIL, :on => :create, :message => "improper length"
+  validates_format_of :email, :with => EMAIL_REGEX, :message => "improper format"
   
   
   def generate_confirmation_code
