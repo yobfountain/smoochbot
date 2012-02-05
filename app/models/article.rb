@@ -2,8 +2,8 @@ class Article < ActiveRecord::Base
   
   # belongs_to :author
   
-  named_scope :reusable_articles, :conditions => { :can_reuse => true }
-  named_scope :active_articles, :conditions => { :active => true }
+  scope :reusable_articles, :conditions => { :can_reuse => true }
+  scope :active_articles, :conditions => { :active => true }
   
   def self.mail_all(options = {})
   

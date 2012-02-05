@@ -13,7 +13,7 @@ class Smoochee < ActiveRecord::Base
 
   after_create :generate_confirmation_code
   
-  named_scope :emailable, :conditions => { :active => true, :email_verified => true }
+  scope :emailable, :conditions => { :active => true, :email_verified => true }
   
   validates_uniqueness_of :email, :on => :create, :message => "must be unique"
   validates_presence_of :email, :on => :create, :message => "please input email"
