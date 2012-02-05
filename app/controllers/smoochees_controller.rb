@@ -4,8 +4,6 @@ class SmoocheesController < ApplicationController
   # before_filter :must_have_confirmation_code_or_is_admin, :except => [:new, :create, :verify]
   before_filter :must_be_admin, :only => [:index, :destroy, :show]
   
-  # GET /smoochees
-  # GET /smoochees.xml
   def index
     if user_signed_in?
       @smoochees = Smoochee.all
@@ -20,8 +18,6 @@ class SmoocheesController < ApplicationController
     end
   end
 
-  # GET /smoochees/1
-  # GET /smoochees/1.xml
   def show
     @smoochee = Smoochee.find(params[:id])
 
@@ -31,8 +27,6 @@ class SmoocheesController < ApplicationController
     end
   end
 
-  # GET /smoochees/new
-  # GET /smoochees/new.xml
   def new
     @smoochee = Smoochee.new
 
@@ -42,7 +36,6 @@ class SmoocheesController < ApplicationController
     end
   end
 
-  # GET /smoochees/1/edit
   def edit
     if params[:id]
       @smoochee = Smoochee.find(params[:id])
@@ -51,8 +44,6 @@ class SmoocheesController < ApplicationController
     end
   end
   
-  # POST /smoochees
-  # POST /smoochees.xml
   def create
     @smoochee = Smoochee.new(params[:smoochee])
     # I added the 3 lines below
@@ -74,8 +65,6 @@ class SmoocheesController < ApplicationController
     end
   end
 
-  # PUT /smoochees/1
-  # PUT /smoochees/1.xml
   def update
     @smoochee = Smoochee.find(params[:id])
 
@@ -90,8 +79,6 @@ class SmoocheesController < ApplicationController
     end
   end
 
-  # DELETE /smoochees/1
-  # DELETE /smoochees/1.xml
   def destroy
     @smoochee = Smoochee.find(params[:id])
     @smoochee.destroy
