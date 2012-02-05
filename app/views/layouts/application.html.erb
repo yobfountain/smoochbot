@@ -11,7 +11,9 @@
 <body>
 <div id="content">
 	<div id="user_nav">
-	<% if user_signed_in? %>
+	<% if user_signed_in? and current_user.is_admin? %>
+	<p> Hello Admin	| <%= link_to "Logout", destroy_user_session_path %></p>
+	<% elsif user_signed_in? %>
 		<p>Hello <%= current_user.email %> | 
 		<%= link_to "Logout", destroy_user_session_path %></p>
 	<% end %>
