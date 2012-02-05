@@ -1,17 +1,17 @@
 <div id="copy_box">
-	<img src="images/smoochbot_020412.png" alt="This is smoochbot. This is what he does." width="271" height="322" border="0" class="robot"/>
+	<img src="images/smoochbot_020412.png" alt="This is smoochbot." width="271" height="322" border="0" class="robot"/>
 	<p class="main_copy">Enter your email below to receive fun and easy ideas guaranteed to bring on the smooches.</p>
-<%= form_for(@smoochee) do |f| %>
-<p>
-<%= f.label :email, "type your email here", :class => "inField email-form" %>	
-<%= f.text_field :email, :class => "email-form" %>
+	<!-- <%= render 'form' %> -->	
+	<%= form_for(@smoochee) do |f| %>
+	<p style="padding-top: 0px;">
+		<%= f.label :email, "type your email here", :class => "inField email-form" %>	
+		<%= f.text_field :email, :class => "email-form" %>
+	</p>
+	<p>
+	<%= f.label :frequency, "frequency", :class => "radio-button-form" %>:
+	<%= f.radio_button :frequency, "0", :checked => true %> <%= f.label :weekly, "weekly", :class => "radio-button-form" %>
+	<%= f.radio_button :frequency, "1" %> <%= f.label :monthly, "monthly", :class => "radio-button-form" %>
 </p>
-<p class="top-padding">
-<%= f.label :frequency, "frequency", :class => "radio-button-form" %>:
-<%= f.radio_button :frequency, "0", :checked => true %> <%= f.label :weekly, "weekly", :class => "radio-button-form" %>
-<%= f.radio_button :frequency, "1" %> <%= f.label :monthly, "monthly", :class => "radio-button-form" %>
-</p>
-<p class="top-padding"> <%= f.submit "let's do this!", :class => 'myButton' %><p>
+<p> <%= f.submit "let's do this!", :class => 'myButton' %></p>
+	<% end %>
 </div>
-
-<% end %>
