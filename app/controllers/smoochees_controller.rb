@@ -66,7 +66,7 @@ class SmoocheesController < ApplicationController
 
     respond_to do |format|
       if @smoochee.update_attributes(params[:smoochee])
-        format.html { redirect_to(@smoochee, :notice => 'Smoochee was successfully updated.') }
+        format.html { redirect_to("/", :notice => 'Your profile was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
