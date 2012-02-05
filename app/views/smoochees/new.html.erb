@@ -1,22 +1,17 @@
 <div id="copy_box">
-	<p class="main_copy">This is smoochbot. He is here to help you.<br /> Check out his code below:</p>
-	<blockquote>
-	<p class="ocr_copy">10 email human romantic idea</p>
-	<p class="ocr_copy">20 wait predetermined interval</p>
-	<p class="ocr_copy">30 goto 10</p>
-	</blockquote>
+	<img src="images/smoochbot_020412.png" alt="This is smoochbot. This is what he does." width="271" height="322" border="0" class="robot"/>
+	<p class="main_copy">Enter your email below to receive fun and easy ideas guaranteed to bring on the smooches.</p>
+<%= form_for(@smoochee) do |f| %>
+<p>
+<%= f.label :email, "type your email here", :class => "inField email-form" %>	
+<%= f.text_field :email, :class => "email-form" %>
+</p>
+<p class="top-padding">
+<%= f.label :frequency, "frequency", :class => "radio-button-form" %>:
+<%= f.radio_button :frequency, "0", :checked => true %> <%= f.label :weekly, "weekly", :class => "radio-button-form" %>
+<%= f.radio_button :frequency, "1" %> <%= f.label :monthly, "monthly", :class => "radio-button-form" %>
+</p>
+<p class="top-padding"> <%= f.submit "sign up", :class => 'button' %><p>
 </div>
 
-<%= render 'form' %>
-
-<% form_for(@smoochee) do |f| %>
-<p>
-<%= f.text_field :email, :value => "enter email here" %> <%= f.submit "sign up" %>
-</p>
-
-<p>
-<%= f.label :frequency %>:
-<%= f.radio_button :frequency, "0", :checked => true %> <%= f.label :weekly %>
-<%= f.radio_button :frequency, "1" %> <%= f.label :monthly %>
-</p>
 <% end %>

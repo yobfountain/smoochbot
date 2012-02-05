@@ -1,32 +1,29 @@
-<h1>List Members</h1>
-
-<%= link_to 'New smoochee', new_smoochee_path %>
+<h1>smoochees</h1>
 
 <table>
   <tr>
     <th>Email</th>
-    <th>Email verified</th>
+    <th>Verified?</th>
     <th>Active</th>
-    <th>Anniversary</th>
+    <th>Anniv.</th>
     <th>Birthday</th>
-    <th>Budget</th>
-    <th>Frequency</th>
+    <th>$$$</th>
+    <th>Freq.</th>
     <th>Last Smooched</th>
   </tr>
  
 <% for smoochee in @smoochees %>
-  <tr>
+  <tr class="<%= cycle("even", "odd") %>">
     <td><%=h smoochee.email %></td>
-    <td><%=h smoochee.email_verified %></td>
-    <td><%=h smoochee.active %></td>
+    <td><%=h smoochee.email_verified ? 'Yes' : 'No' %></td>
+    <td><%=h smoochee.active ? 'Yes' : 'No' %></td>
     <td><%=h smoochee.anniversary %></td>
     <td><%=h smoochee.birthday %></td>
     <td><%=h smoochee.budget %></td>
     <td><%=h smoochee.frequency %></td>
-    <td><%=h smoochee.last_smooched %></td>
-    <td><%= link_to 'Show', smoochee %></td>
+    <td><%=h smoochee.last_smooched.to_formatted_s(:short) %></td>
     <td><%= link_to 'Edit', edit_smoochee_path(smoochee) %></td>
-    <td><%= link_to 'Destroy', smoochee, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'X', smoochee, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
