@@ -20,7 +20,7 @@
     <td><%=h smoochee.anniversary %></td>
     <td><%=h smoochee.birthday %></td>
     <td><%=h smoochee.budget %></td>
-    <td><%=h smoochee.frequency %></td>
+    <td><%=h smoochee.frequency ? 'W' : 'M' %></td>
     <td><%=h smoochee.last_smooched.to_formatted_s(:short) %></td>
     <td><%= link_to 'Edit', edit_smoochee_path(smoochee) %></td>
     <td><%= link_to 'X', smoochee, :confirm => 'Are you sure?', :method => :delete %></td>
