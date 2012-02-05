@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   
+  before_filter :must_be_admin, :except => [:suggest, :create]
+  
   # GET /articles
   # GET /articles.xml
   def index

@@ -1,7 +1,8 @@
 class SmoocheesController < ApplicationController
   
   #protect edit and unsubscribe methods
-  before_filter :must_have_confirmation_code, :except => [:new, :create, :index]
+  # before_filter :must_have_confirmation_code_or_is_admin, :except => [:new, :create, :verify]
+  before_filter :must_be_admin, :only => [:index, :destroy, :show]
   
   # GET /smoochees
   # GET /smoochees.xml
