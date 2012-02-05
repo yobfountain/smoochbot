@@ -5,17 +5,12 @@ class SmoocheesController < ApplicationController
   before_filter :must_be_admin, :only => [:index, :destroy, :show]
   
   def index
-    if user_signed_in?
       @smoochees = Smoochee.all
 
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @smoochees }
       end
-    else
-      flash[:notice] = 'Please log in first!'
-      redirect_to root_path
-    end
   end
 
   def show
@@ -46,17 +41,18 @@ class SmoocheesController < ApplicationController
   
   def create
     @smoochee = Smoochee.new(params[:smoochee])
-    # I added the 3 lines below
+    # Set user to inactive
     @smoochee.active = false
     @smoochee.email_verified = false
+    #create the confirmation code
     @smoochee.confirmation_code
 
     respond_to do |format|
       if @smoochee.save
         # Not sure if I structured this line below correctly
         Notifications.confirmation(@smoochee, request.host_with_port).deliver
-        flash[:notice] = 'Check your email!'
-        format.html { redirect_to('/') }
+        #flash[:notice] = 'Email accepted!'
+        format.html { redirect_to('/verify') }
         # format.xml  { render :xml => @smoochee, :status => :created, :location => @smoochee }
       else
         format.html { render :action => "new" }
@@ -132,14 +128,16 @@ class SmoocheesController < ApplicationController
     end
   end
   
-  def must_have_confirmation_code
-    #retrieve smoochee by confirmation_code
-    @smoochee = Smoochee.find_by_confirmation_code(params[:confirmation_code])    
-    # ensure they exist
-    if @smoochee.nil?
-      #that user does not exist
-      flash[:error] = "That smoochee does not exist"
-      redirect_to root_url
+  def must_have_confirmation_code_or_is_admin
+    if !user_signed_in? or current_user.is_admin?
+      #retrieve smoochee by confirmation_code
+      @smoochee = Smoochee.find_by_confirmation_code(params[:confirmation_code])    
+      # ensure they exist
+      if @smoochee.nil?
+        #that user does not exist
+        flash[:error] = "That smoochee does not exist"
+        redirect_to root_url
+      end
     end
   end
      
