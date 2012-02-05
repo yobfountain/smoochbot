@@ -13,9 +13,9 @@
     <%=h articles.intro %><br />
     <%=h articles.body %><br />
     <%=h articles.duration %> mins. | $<%=h articles.min_cost %> - <%=h articles.max_cost %> | <%=h articles.rating %>
-    <%=h articles.can_reuse %>
-    <%=h articles.is_significant %>
-	<%=h articles.active %>
+    <%=h articles.can_reuse ? 'Reusable' : 'Non-Reusable' %> |
+    <%=h articles.is_significant ? 'Significant' : 'Not Significant' %> |
+	<%=h articles.active ? 'Active' : 'Inactive' %>
 	</div>
 	<br />
 <% end %>
