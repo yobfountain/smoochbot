@@ -16,6 +16,7 @@ Smoochbot::Application.routes.draw do
   match 'suggest', :to => 'articles#suggest'
   match 'confirm/:confirmation_code', :to => 'smoochees#confirm'
   match 'update/:confirmation_code', :to => 'smoochees#edit'
+  match 'verify', :to => 'smoochees#verify'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
