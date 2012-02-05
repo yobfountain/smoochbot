@@ -132,7 +132,7 @@ blockquote {
  
 .tagline {
   font-family: "Courier New", Courier, monospace;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: bold;
   }  
 #copy_box {
@@ -234,95 +234,49 @@ tr.odd td{
 	padding: 3px 3px 3px 6px;
 }
 
-.button, .button span {
-	display: inline-block;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
-.button {
-	white-space: nowrap;
-	line-height:1em;
-	position:relative;
-	outline: none;
-	overflow: visible; /* removes extra side padding in IE */
-	cursor: pointer;
-	border: 1px solid #999;/* IE */
-	border: rgba(0, 0, 0, .2) 1px solid;/* Saf4+, Chrome, FF3.6 */
-	border-bottom:rgba(0, 0, 0, .4) 1px solid;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	background: -moz-linear-gradient(
-		center top,
-		rgba(255, 255, 255, .1) 0%,
-		rgba(0, 0, 0, .1) 100%
-	);/* FF3.6 */
-	background: -webkit-gradient(
-		linear,
-		center bottom,
-		center top,
-		from(rgba(0, 0, 0, .1)),
-		to(rgba(255, 255, 255, .1))
-	);/* Saf4+, Chrome */
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000'); /* IE6,IE7 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000')"; /* IE8 */
-	-moz-user-select: none;
-	-webkit-user-select:none;
-	-khtml-user-select: none;
-	user-select: none;
-	margin-bottom:10px;
-	background-color: #6AC4C5;
-	font-size:20px;
-	color: #FFFFFF;
-}
-.button.full, .button.full span {
-	display: block;
-}
-.button:hover, .button.hover {
-	background: -moz-linear-gradient(
-		center top,
-		rgba(255, 255, 255, .2) 0%,
-		rgba(255, 255, 255, .1) 100%
-	);/* FF3.6 */
-	background: -webkit-gradient(
-		linear,
-		center bottom,
-		center top,
-		from(rgba(255, 255, 255, .1)),
-		to(rgba(255, 255, 255, .2))
-	);/* Saf4+, Chrome */
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF'); /* IE6,IE7 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF')"; /* IE8 */
-}
-.button:active, .button.active {
-	top:1px;
-}
-.button span {
-	position: relative;
-	color:#fff;
-	text-shadow:0 1px 1px rgba(0, 0, 0, 0.25);
-	border-top: rgba(255, 255, 255, .2) 1px solid;
-	padding:0.6em 1.3em;
-	line-height:1em;
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 1px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 1px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 1px #bbdaf7;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77e0e0), color-stop(1, #6ac3c5) );
+	background:-moz-linear-gradient( center top, #77e0e0 5%, #6ac3c5 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77e0e0', endColorstr='#6ac3c5');
+	background-color:#77e0e0;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:13px;
+	border:1px solid #77e0e0;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:23px;
+	font-weight:bold;
+	padding:6px 60px;
 	text-decoration:none;
-	text-align:center;
-	white-space: nowrap;
+	text-shadow:1px 1px 0px #6ac3c5;
+}.myButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #6ac3c5), color-stop(1, #77e0e0) );
+	background:-moz-linear-gradient( center top, #6ac3c5 5%, #77e0e0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6ac3c5', endColorstr='#77e0e0');
+	background-color:#6ac3c5;
+}.myButton:active {
+	position:relative;
+	top:1px;
 }
 
 .email-form {
-	font-size: 1.5em;
+	font-size: 1.3em;
 	padding-top: 6px;
 	padding-left: 12px;
 }
 
 .radio-button-form {
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 .top-padding {
 	padding-top: 1em;
 }
 
-form p { position:relative }
+form p { position:relative; left:-6px; }
 label.inField  { position:absolute; top:0; left:0}
