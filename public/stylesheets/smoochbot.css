@@ -10,6 +10,10 @@ body {
   background: white url(/images/bg_grad.gif) left top repeat-x;
   }
 
+form {
+	padding: 6px;
+}
+
 #notice {
   color: green;
 }
@@ -66,9 +70,9 @@ blockquote {
   }
  
 #intro {
-  width: 850px;
+  width: 800px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
   }
  
@@ -79,14 +83,27 @@ blockquote {
   margin-top: 70px;
   padding: 1em 3em 2em 2em;
   background-color: #FFFFFF;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
   }
+
+#smoochbot {
+  font-family: 'Concert One', cursive;
+  font-size: 58px;
+  color: #6AC4C5;
+}
+
+#smoochbot a {
+	text-decoration: none;
+	color: #6AC4C5;
+}
 
 #user_nav {
 	float: right;
 }
   
 #bottom_container {
-  width: 850px;
+  width: 750px;
   margin: auto;
   position: relative;
   left: -7px;
@@ -119,7 +136,8 @@ blockquote {
   font-weight: bold;
   }  
 #copy_box {
-  margin: 2em 0 3em 0;
+  margin: 2em 0 0em 0;
+  width: 750px;
   }
   
 .main_copy {
@@ -174,3 +192,137 @@ blockquote {
   color: #999999;
   text-decoration: none;
   }
+
+table {
+	width:100%;
+	margin:1em auto;
+	border-collapse:collapse;
+}
+
+td {
+	color:#678197;
+	border-bottom:1px solid #e5eff8;
+	border-left:1px solid #e5eff8;
+	border-right:1px solid #e5eff8;
+	padding:.3em 1em;
+	text-align:left;
+}
+
+th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica,
+	sans-serif;
+	color: #6D929B;
+	border-right: 1px solid #e5eff8;
+	border-bottom: 1px solid #C1DAD7;
+	border-left: 1px solid #e5eff8;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #f4f9fe;
+}
+
+
+tr.even td{
+	background:#fff;
+	padding: 3px 3px 3px 6px;
+}
+
+tr.odd td{
+	background:#f7fbff;
+	padding: 3px 3px 3px 6px;
+}
+
+.button, .button span {
+	display: inline-block;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.button {
+	white-space: nowrap;
+	line-height:1em;
+	position:relative;
+	outline: none;
+	overflow: visible; /* removes extra side padding in IE */
+	cursor: pointer;
+	border: 1px solid #999;/* IE */
+	border: rgba(0, 0, 0, .2) 1px solid;/* Saf4+, Chrome, FF3.6 */
+	border-bottom:rgba(0, 0, 0, .4) 1px solid;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	background: -moz-linear-gradient(
+		center top,
+		rgba(255, 255, 255, .1) 0%,
+		rgba(0, 0, 0, .1) 100%
+	);/* FF3.6 */
+	background: -webkit-gradient(
+		linear,
+		center bottom,
+		center top,
+		from(rgba(0, 0, 0, .1)),
+		to(rgba(255, 255, 255, .1))
+	);/* Saf4+, Chrome */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000')"; /* IE8 */
+	-moz-user-select: none;
+	-webkit-user-select:none;
+	-khtml-user-select: none;
+	user-select: none;
+	margin-bottom:10px;
+	background-color: #6AC4C5;
+	font-size:20px;
+	color: #FFFFFF;
+}
+.button.full, .button.full span {
+	display: block;
+}
+.button:hover, .button.hover {
+	background: -moz-linear-gradient(
+		center top,
+		rgba(255, 255, 255, .2) 0%,
+		rgba(255, 255, 255, .1) 100%
+	);/* FF3.6 */
+	background: -webkit-gradient(
+		linear,
+		center bottom,
+		center top,
+		from(rgba(255, 255, 255, .1)),
+		to(rgba(255, 255, 255, .2))
+	);/* Saf4+, Chrome */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF')"; /* IE8 */
+}
+.button:active, .button.active {
+	top:1px;
+}
+.button span {
+	position: relative;
+	color:#fff;
+	text-shadow:0 1px 1px rgba(0, 0, 0, 0.25);
+	border-top: rgba(255, 255, 255, .2) 1px solid;
+	padding:0.6em 1.3em;
+	line-height:1em;
+	text-decoration:none;
+	text-align:center;
+	white-space: nowrap;
+}
+
+.email-form {
+	font-size: 1.5em;
+	padding-top: 6px;
+	padding-left: 12px;
+}
+
+.radio-button-form {
+	font-size: 1.5em;
+}
+
+.top-padding {
+	padding-top: 1em;
+}
+
+form p { position:relative }
+label.inField  { position:absolute; top:0; left:0}
