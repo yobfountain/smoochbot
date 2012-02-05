@@ -2,7 +2,7 @@
 <br />
 <p>all suggestions are welcome. please input your data below:</p>
 <br />
-<% form_for(@article) do |f| %>
+<%= form_for(@article) do |f| %>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title, :size => 80 %>
@@ -15,8 +15,8 @@
     <%= f.label :min_cost %>
     $ <%= f.text_field :min_cost, :size => 10 %>  
     <%= f.label :max_cost %>
-    $ <%= f.text_field :max_cost, :size => 10 %>
-    <%= f.label :duration, "how long will this idea take?" %>
+    $ <%= f.text_field :max_cost, :size => 10 %><br />
+    <%= f.label :duration, "how long will this idea take to prepare?" %>
     <%= f.text_field :duration, :size => 10 %>
   </p>
   <p>
